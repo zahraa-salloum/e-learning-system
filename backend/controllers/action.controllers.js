@@ -24,3 +24,15 @@ exports.createClass = async (req, res) => {
   }
 
 
+exports.enroll = async (req, res) => {
+  const { id: classId } = req.params;
+  const { studentId } = req.body;
+
+  const updatedClass = await Class.findByIdAndUpdate(
+    classId,
+    { $push: { students: studentId } }
+  );
+
+  res.json(updatedClass);
+};
+
