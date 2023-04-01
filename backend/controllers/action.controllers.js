@@ -6,7 +6,7 @@ const Document = require("../models/documentModel.js");
 
 
 exports.getAllStudents = async (req, res) => {
-    const students = await User.find();
+    const students = await User.find({ role: "student" });
   
     res.json(students)
   }
