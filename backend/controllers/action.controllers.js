@@ -36,3 +36,16 @@ exports.enroll = async (req, res) => {
   res.json(updatedClass);
 };
 
+exports.uploadFiles = async (req, res) => {
+  const { id: classId } = req.params;
+  const { title, content,} = req.body;
+
+  try {
+    const document = await Document.create({ title, content,class: classId });
+    res.json(document);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+}
+
