@@ -74,6 +74,27 @@ exports.getWithdrawals = async (req, res) => {
   }
 }
 
+exports.updateStatusWithdrawal = async (req, res) => {
+  const { id: withdrawalId } = req.params;
+  const { status } = req.body;
+
+  const updatedWithdrawal = await Withdrawal.findByIdAndUpdate(
+    withdrawalId,
+     { status: status },
+     { new: true }
+  );
+  if(status == "accepted"){
+   
+    const deleting_student = await Class.findOneAndUpdate(
+      { _id: updatedWithdrawal.class },
+      { $pull: { students: { $in: [updatedWithdrawal.student] } } },
+      { new: true }
+    );
+  }
+    
+  res.json(updatedWithdrawal);
+};
+
 
 exports.getFilesByClass = async (req, res) => {
   const { classId } = req.body;
