@@ -62,6 +62,18 @@ exports.applyWithdrawal = async (req, res) => {
   }
 }
 
+exports.getWithdrawals = async (req, res) => {
+
+
+  try {
+    const withdrawals = await Withdrawal.find({ status: "pending" });
+    res.json(withdrawals);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+}
+
 
 exports.getFilesByClass = async (req, res) => {
   const { classId } = req.body;
