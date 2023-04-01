@@ -38,7 +38,7 @@ exports.enroll = async (req, res) => {
 
 exports.uploadFiles = async (req, res) => {
   const { id: classId } = req.params;
-  const { title, content,} = req.body;
+  const { title, content} = req.body;
 
   try {
     const document = await Document.create({ title, content,class: classId });
@@ -47,5 +47,27 @@ exports.uploadFiles = async (req, res) => {
     console.error(error);
     res.status(500).json({ message: 'Server error' });
   }
+}
+
+exports.applyWithdrawal = async (req, res) => {
+  const { id: studentId } = req.params;
+  const { classId } = req.body;
+
+  try {
+    const withdrawal = await Withdrawal.create({ student: studentId,class: classId });
+    res.json(withdrawal);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+}
+
+
+exports.getFilesByClass = async (req, res) => {
+  const { classId } = req.body;
+
+  const files = await Document.find({ class: classId });
+
+  res.json(files);
 }
 
