@@ -71,3 +71,10 @@ exports.getFilesByClass = async (req, res) => {
   res.json(files);
 }
 
+exports.getClassStudents = async (req, res) => {
+    const { id } = req.params;
+  
+    const students = await Class.findById(id).populate("students","name email")
+    res.json(students);
+  }
+
