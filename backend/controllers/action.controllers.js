@@ -10,6 +10,12 @@ exports.getAllStudents = async (req, res) => {
   
     res.json(students)
   }
+
+  exports.getAllClasses = async (req, res) => {
+    const classes = await Class.find();
+  
+    res.json(classes)
+  }
   
 exports.createClass = async (req, res) => {
     const { name, major, credits,semester} = req.body;
