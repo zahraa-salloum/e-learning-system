@@ -30,7 +30,8 @@ exports.enroll = async (req, res) => {
 
   const updatedClass = await Class.findByIdAndUpdate(
     classId,
-    { $push: { students: studentId } }
+    { $push: { students: studentId } },
+    { new: true }
   );
 
   res.json(updatedClass);
