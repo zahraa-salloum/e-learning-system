@@ -219,21 +219,35 @@ workshop_pages.load_uploadFile = async () => {
     const content = document.getElementById('content');
     const submit = document.getElementById('submit');
     submit.addEventListener('click', uploadFile);
-
+    
     const token = localStorage.getItem('token');
-
+    
     const get_classes = workshop_pages.base_url + "action/classes";
-    const response_classes = await workshop_pages.getAPI(get_classes,token);
-
-    for( let i = 0; i < response_classes.data.length; i++){
-        let newOption = new Option(response_classes.data[i]['name'],response_classes.data[i]['_id']);
-        class_name.add(newOption,undefined);
+    const response_classes = await workshop_pages.getAPI(get_classes, token);
+    
+    for (let i = 0; i < response_classes.data.length; i++) {
+      let newOption = new Option(response_classes.data[i]['name'], response_classes.data[i]['_id']);
+      class_name.add(newOption, undefined);
     }
-
+    
     async function uploadFile() {
-        console.log(content.value)
-    }
 
+      const file = content.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = async function() {
+        const base64String = reader.result.split(',')[1];
+        const data = {
+          "title": title.value,
+          "content": base64String
+        };
+    
+        const post_file = workshop_pages.base_url + "action/" + class_name.value + "/upload";
+        const response = await workshop_pages.postAPI(post_file, data, token);
+    
+        console.log(response.data);
+      }
+    }
 }
 
 
