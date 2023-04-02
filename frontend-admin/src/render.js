@@ -98,7 +98,6 @@ workshop_pages.load_out = async () => {
 workshop_pages.load_back = async () => {
     let back = document.getElementById('back');
     back.addEventListener("click", function(){
-        localStorage.clear();
         location.replace("adminPanel.html")
     })
 }
@@ -139,5 +138,23 @@ workshop_pages.load_addClass = async () => {
     // console.log(user_id)
 }
 
+workshop_pages.load_allStudents = async () => {
+    const container = document.getElementById('container');
+    const token = localStorage.getItem('token');
 
+    const get_students = workshop_pages.base_url + "action/students";
+    const response_students = await workshop_pages.getAPI(get_students,token);
+      
+    for(let i=0 ; i < response_students.data.length; i++){
+       
+        const name_div = document.createElement('div');
+        name_div.innerHTML = response_students.data[i]['name'];
+
+        const line = document.createElement('hr');
+
+        container.appendChild(name_div);
+        container.appendChild(line);
+    }
+
+}
 
