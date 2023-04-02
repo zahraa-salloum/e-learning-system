@@ -75,8 +75,15 @@ workshop_pages.load_panel = async () => {
     let add_class = document.getElementById('add_class')
     add_class.addEventListener('click', addClass);
 
+    let students_all = document.getElementById('students_all')
+    students_all.addEventListener('click', studentsAll);
+
     function addClass() {
         location.replace("addClass.html")
+    }
+
+    function studentsAll() {
+        location.replace("allStudents.html")
     }
     
 }
