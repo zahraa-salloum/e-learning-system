@@ -3,9 +3,10 @@ html {
     height: 100vh;
     display: grid;
     place-content: center;
-    -webkit-tap-highlight-color: transparent; }
+    -webkit-tap-highlight-color: transparent;
+}
   
-  .menu {
+.menu {
     position: relative;
     top: 40px;
     padding: 30px;
@@ -14,22 +15,22 @@ html {
     cursor: pointer;
     box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0); }
     .menu::before, .menu::after {
-      content: "";
-      background: #2F3C7E;
-      border-radius: 5px;
-      width: 30px;
-      height: 5px;
-      position: absolute;
-      left: 16px;
-      top: 27px;
-      transition: 0.2s ease;
-      z-index: 1; }
+        content: "";
+        background: #2F3C7E;
+        border-radius: 5px;
+        width: 30px;
+        height: 5px;
+        position: absolute;
+        left: 16px;
+        top: 27px;
+        transition: 0.2s ease;
+        z-index: 1; }
     .menu::before {
-      transform: rotate(0deg); }
+        transform: rotate(0deg); }
     .menu::after {
-      transform: rotate(-90deg); }
+        transform: rotate(-90deg); }
     .menu.open {
-      opacity: .9; }
+        opacity: .9; }
       .menu.open::before {
         transform: rotate(45deg); }
       .menu.open::after {
@@ -38,14 +39,14 @@ html {
         opacity: 1;
         pointer-events: auto; }
         .menu.open .button:first-of-type {
-          bottom: 40px;
-          right: 70px;
-          background: url("assets/classroom-48.png") no-repeat 50%/50% #2F3C7E;
+            bottom: 40px;
+            right: 70px;
+            background: url("assets/classroom-48.png") no-repeat 50%/50% #2F3C7E;
          }
         .menu.open .button:nth-of-type(2) {
-          bottom: 80px;
-          background: url("assets/student-48.png") no-repeat 50%/50% #2F3C7E;
-          transition-delay: .05s; }
+            bottom: 80px;
+            background: url("assets/student-48.png") no-repeat 50%/50% #2F3C7E;
+            transition-delay: .05s; }
         .menu.open .button:nth-of-type(3) {
             bottom: -80px;
             background: url("assets/search-8-48.png") no-repeat 50%/50% #2F3C7E;
@@ -61,12 +62,12 @@ html {
             background: url("assets/logout-48.png") no-repeat 50%/50% #2F3C7E;
             transition-delay: .25s; }
         .menu.open .button:last-of-type {
-          bottom: 40px;
-          right: -70px;
-          background: url("assets/text-file-3-48.png") no-repeat 50% 45%/50% 45% #2F3C7E;
-          transition-delay: .1s; }
+            bottom: 40px;
+            right: -70px;
+            background: url("assets/text-file-3-48.png") no-repeat 50% 45%/50% 45% #2F3C7E;
+            transition-delay: .1s; }
   
-  .button {
+.button {
     padding: 30px;
     border-radius: 50%;
     cursor: pointer;
@@ -83,7 +84,7 @@ html {
   
 
 
-      .container{
+    .container{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -99,12 +100,12 @@ html {
         padding-top: 20px;
         
       }
-      .size_heading{
+    .size_heading{
         color: #FBEAEB;
         font-family: "Open Sans";
         font-size: 20px;
       }
-      .input_clear {
+    .input_clear {
         background-color:#FBEAEB;
         font-family: "Open Sans";
         font-size: large;
@@ -115,14 +116,14 @@ html {
         border: 2px solid #f7dadc;
         border-radius: 4px;
       }
-      .input_clear:focus {
+    .input_clear:focus {
         outline: none !important;
         font-family: "Open Sans";
         border: 2px solid #f7dadc;
         box-shadow: 0 1px #f6ebec;
         color: #000000;
       }
-      .btn {
+    .btn {
         cursor: pointer;
         width: 75%;
         border: 1px solid #f7dadc;
@@ -135,15 +136,15 @@ html {
         transition: 200ms;
       }
       
-      .btn:hover {
+    .btn:hover {
             background: rgba(255,255,255,0.13);
             color: #FBEAEB;
       }
-      .login_text{
+    .login_text{
         display: inline;
       }
 
-      .label{
+    .label{
         color: #f7dadc;
         margin-left: 13%;
         align-self: start !important;
