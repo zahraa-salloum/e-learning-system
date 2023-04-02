@@ -5,7 +5,7 @@ const { adminMiddleware } = require("../middlewares/admin.middleware");
 const router = Router();
 
 router.get("/students",authMiddleware, adminMiddleware, getAllStudents);
-router.get("/classes",authMiddleware, adminMiddleware, getAllClasses);
+router.get("/classes",authMiddleware, getAllClasses);
 router.get("/:id/myclasses",authMiddleware, getClassesOfStudent);
 router.post("/class",authMiddleware, adminMiddleware, createClass);
 router.post("/:id/enroll",authMiddleware, enroll);

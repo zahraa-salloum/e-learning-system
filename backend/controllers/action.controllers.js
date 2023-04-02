@@ -12,14 +12,14 @@ exports.getAllStudents = async (req, res) => {
   }
 
   exports.getAllClasses = async (req, res) => {
-    const classes = await Class.find();
+    const classes = await Class.find({}, { students: 0 });
   
     res.json(classes)
   }
   
   exports.getClassesOfStudent = async (req, res) => {
     const { id: studentId } = req.params;
-    const classes = await Class.find({ students: studentId })
+    const classes = await Class.find({ students: studentId }, { students: 0 })
   
     res.json(classes)
   }
