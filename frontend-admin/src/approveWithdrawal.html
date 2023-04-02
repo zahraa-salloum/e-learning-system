@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Withdrawals</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container" id="container">
+        <div class="size_heading"><h1>WITHDRAWALS</h1></div>
+        <select id="withdrawal" name="withdrawal" class="input_clear">
+            
+        </select>
+        <select id="status" name="status" class="input_clear">
+            <option value="accepted">Accepted</option>
+            <option value="rejected">Rejected</option>
+        </select>
+
+        
+        <button class="btn" id="submit">SUBMIT</button>
+        <button class="btn" id="back">Back</button>
+      </div>
+    
+
+
+    <script src="axios.min.js"></script>
+    <script src="render.js"></script>
+    <script>
+      workshop_pages.loadFor("withdrawals");
+      workshop_pages.loadFor("back");
+    </script>
+  </body>
+</html>

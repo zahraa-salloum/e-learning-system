@@ -82,7 +82,7 @@ exports.getWithdrawals = async (req, res) => {
 
 
   try {
-    const withdrawals = await Withdrawal.find({ status: "pending" });
+    const withdrawals = await Withdrawal.find({ status: "pending" }).populate("student","name").populate("class","name");
     res.json(withdrawals);
   } catch (error) {
     console.error(error);

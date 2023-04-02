@@ -78,12 +78,19 @@ workshop_pages.load_panel = async () => {
     let students_all = document.getElementById('students_all')
     students_all.addEventListener('click', studentsAll);
 
+    let approve = document.getElementById('approve')
+    approve.addEventListener('click', approveWithdrawals);
+    
     function addClass() {
         location.replace("addClass.html")
     }
 
     function studentsAll() {
         location.replace("allStudents.html")
+    }
+
+    function approveWithdrawals() {
+        location.replace("approveWithdrawal.html")
     }
     
 }
@@ -155,6 +162,23 @@ workshop_pages.load_allStudents = async () => {
         container.appendChild(name_div);
         container.appendChild(line);
     }
+
+}
+
+
+workshop_pages.load_withdrawals = async () => {
+    const withdrawal = document.getElementById('withdrawal');
+    const status = document.getElementById('status');
+    const token = localStorage.getItem('token');
+
+    const get_withdrawals = workshop_pages.base_url + "action/all_withdrawals";
+    const response_withdrawals = await workshop_pages.getAPI(get_withdrawals,token);
+
+    for( let i = 0; i < response_withdrawals.data.length; i++){
+        let newOption = new Option(response_withdrawals.data[i]['student']['name']+" "+ response_withdrawals.data[i]['class']['name'],response_withdrawals.data[i]['_id']);
+        withdrawal.add(newOption,undefined);
+    }
+
 
 }
 
