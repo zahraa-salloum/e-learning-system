@@ -32,7 +32,7 @@ workshop_pages.postAPI = async (api__url, api_data, api_token = null) => {
             }
         );
     }catch(error){
-        console.log("Error from POST API");
+        console.log("Error from POST API",error);
     }
 }
 
@@ -72,9 +72,54 @@ workshop_pages.load_login = async () => {
 
 
 workshop_pages.load_panel = async () => {
+    let add_class = document.getElementById('add_class')
+    add_class.addEventListener('click', addClass);
+
+    function addClass() {
+        location.replace("addClass.html")
+    }
+    
     token = localStorage.getItem('token')
     user_id = localStorage.getItem('user_id')
     console.log(token)
     console.log(user_id)
 }
+
+
+workshop_pages.load_addClass = async () => {
+    let submit = document.getElementById('submit')
+    submit.addEventListener('click', addClass);
+
+    async function addClass() {
+        let name = document.getElementById('name').value;
+        let major = document.getElementById('major').value;
+        let credits = document.getElementById('credits').value;
+        let semester = document.getElementById('semester').value;
+        token = localStorage.getItem('token');
+
+        let data = {
+            "name": name,
+            "major": major,
+            "credits": credits,
+            "semester": semester
+          };
+    
+          const post_class = workshop_pages.base_url + "action/class";
+          const response = await workshop_pages.postAPI(post_class,data,token);
+          
+          if(response.data['_id']!=null){
+            console.log('success')
+            location.reload();
+          }
+        }
+    
+    
+    
+    // token = localStorage.getItem('token')
+    // user_id = localStorage.getItem('user_id')
+    // console.log(token)
+    // console.log(user_id)
+}
+
+
 

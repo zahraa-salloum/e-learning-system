@@ -1,3 +1,6 @@
+/* body{
+    margin-top: 30%;
+} */
 html {
     background: #FBEAEB;
     height: 100vh;
@@ -92,7 +95,8 @@ html {
         gap: 20px;
         width: 350px;
         background-color: #2f3c7eae;
-        margin: 10px auto;
+        margin-top: 100px ;
+        margin-bottom: 30px ;
         border-radius: 20px;
         flex-wrap: wrap;
         padding-bottom: 50px;

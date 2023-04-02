@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Class</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+        <div class="size_heading"><h1>ADD CLASS</h1></div>
+        <label for="name" class="label">Name</label>
+        <input id="name" type="text" placeholder="" class="input_clear"/>
+        <label for="major" class="label">Major</label>
+        <input id="major" type="text" placeholder="" class="input_clear"/>
+        <label for="credits" class="label">Credits</label>
+        <input id="credits" type="text" placeholder="" class="input_clear"/>
+        <label for="semester" class="label">Semester</label>
+        <input id="semester" type="text" placeholder="" class="input_clear"/>
+
+        
+        <button class="btn" id="submit">ADD CLASS</button>
+      </div>
+    
+
+
+    <script src="axios.min.js"></script>
+    <script src="render.js"></script>
+    <script>
+      workshop_pages.loadFor("addClass");
+    </script>
+  </body>
+</html>
