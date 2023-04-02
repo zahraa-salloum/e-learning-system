@@ -79,10 +79,21 @@ workshop_pages.load_panel = async () => {
         location.replace("addClass.html")
     }
     
-    token = localStorage.getItem('token')
-    user_id = localStorage.getItem('user_id')
-    console.log(token)
-    console.log(user_id)
+}
+
+workshop_pages.load_out = async () => {
+    let out = document.getElementById('out');
+    out.addEventListener("click", function(){
+        localStorage.clear();
+        location.replace("index.html")
+    })
+}
+workshop_pages.load_back = async () => {
+    let back = document.getElementById('back');
+    back.addEventListener("click", function(){
+        localStorage.clear();
+        location.replace("adminPanel.html")
+    })
 }
 
 
