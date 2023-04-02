@@ -8,6 +8,8 @@ workshop_pages.getAPI = async (api_url, api_token = null) => {
             api_url,
             {
                 headers:{
+                    // 'Accept' : "application/json",
+                    // 'Content-Type' : "application/json",
                     'Authorization' : "Bearer " + api_token
                 }
             }
@@ -24,8 +26,7 @@ workshop_pages.postAPI = async (api__url, api_data, api_token = null) => {
             api_data,
             {
                 headers:{
-                    'Accept' : "application/json",
-                    'Content-Type' : "application/json",
+                    
                     'Authorization' : "Bearer " + api_token
                 }
             }
@@ -57,11 +58,23 @@ workshop_pages.load_login = async () => {
       const response = await workshop_pages.postAPI(get_user_login,data);
 
       if(response.data['role']=='admin'){
-          window.localStorage.setItem('user_id', response.data['id']);
-          window.localStorage.setItem('token', response.data['token']);
+          localStorage.setItem('user_id', response.data['id']);
+          localStorage.setItem('token', response.data['token']);
+          localStorage.setItem('role', response.data['role']);
+          role = localStorage.getItem('role')
+         
+          if(role == "admin"){
           location.replace("adminPanel.html")
-        
+        }
       }
   }
+}
+
+
+workshop_pages.load_panel = async () => {
+    token = localStorage.getItem('token')
+    user_id = localStorage.getItem('user_id')
+    console.log(token)
+    console.log(user_id)
 }
 
