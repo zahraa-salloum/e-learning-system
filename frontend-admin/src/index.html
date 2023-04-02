@@ -6,7 +6,25 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <a href="adminPanel.html">Click Me</a>
-    </div>
+    <div class="container">
+        <div class="size_heading"><h1>LOG IN</h1></div>
+        <label for="email" class="label">Email</label>
+        <input id="email" type="email" placeholder="john.smith@gmail.com" class="input_clear"/>
+        <span id='emailmessage' class="error"></span>
+        <label for="password" class="label">Password</label>
+        <input id="password" type="password" placeholder="*******" class="input_clear"/>
+        <span id='passwordmessage' class="error"></span>
+
+        
+        <button class="btn" id="submit">LOG IN</button>
+      </div>
+    
+
+
+    <script src="axios.min.js"></script>
+    <script src="index.js"></script>
+    <script>
+      workshop_pages.loadFor("login");
+    </script>
   </body>
 </html>
