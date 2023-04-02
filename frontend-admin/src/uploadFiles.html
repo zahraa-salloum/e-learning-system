@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Upload Files</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+        <div class="size_heading"><h1>UPLOAD FILE</h1></div>
+        <label for="title" class="label">Title</label>
+        <input id="title" type="text" placeholder="" class="input_clear"/>
+
+        <label for="class_name" class="label">Class</label>
+        <select id="class_name" name="class_name" class="input_clear">
+            
+        </select>
+        
+        <label for="content" class="label">Content</label>
+        <input id="content" type="file" placeholder="" class="input_clear"/>
+
+
+        
+        <button class="btn" id="submit">UPLOAD</button>
+        <button class="btn" id="back">Back</button>
+      </div>
+    
+
+
+    <script src="axios.min.js"></script>
+    <script src="render.js"></script>
+    <script>
+      workshop_pages.loadFor("uploadFile");
+      workshop_pages.loadFor("back");
+    </script>
+  </body>
+</html>

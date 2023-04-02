@@ -80,6 +80,10 @@ workshop_pages.load_panel = async () => {
 
     let approve = document.getElementById('approve')
     approve.addEventListener('click', approveWithdrawals);
+
+    let document_upload = document.getElementById('document_upload')
+    document_upload.addEventListener('click', uploadFile);
+    
     
     function addClass() {
         location.replace("addClass.html")
@@ -92,6 +96,11 @@ workshop_pages.load_panel = async () => {
     function approveWithdrawals() {
         location.replace("approveWithdrawal.html")
     }
+
+    function uploadFile() {
+        location.replace("uploadFiles.html")
+    }
+
     
 }
 
@@ -202,4 +211,29 @@ workshop_pages.load_withdrawals = async () => {
     }
 
 }
+
+
+workshop_pages.load_uploadFile = async () => {
+    const title = document.getElementById('title');
+    const class_name = document.getElementById('class_name');
+    const content = document.getElementById('content');
+    const submit = document.getElementById('submit');
+    submit.addEventListener('click', uploadFile);
+
+    const token = localStorage.getItem('token');
+
+    const get_classes = workshop_pages.base_url + "action/classes";
+    const response_classes = await workshop_pages.getAPI(get_classes,token);
+
+    for( let i = 0; i < response_classes.data.length; i++){
+        let newOption = new Option(response_classes.data[i]['name'],response_classes.data[i]['_id']);
+        class_name.add(newOption,undefined);
+    }
+
+    async function uploadFile() {
+        console.log(content.value)
+    }
+
+}
+
 
