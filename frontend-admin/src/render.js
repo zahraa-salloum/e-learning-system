@@ -169,6 +169,9 @@ workshop_pages.load_allStudents = async () => {
 workshop_pages.load_withdrawals = async () => {
     const withdrawal = document.getElementById('withdrawal');
     const status = document.getElementById('status');
+    const submit = document.getElementById('submit');
+    submit.addEventListener('click', updateStatus);
+
     const token = localStorage.getItem('token');
 
     const get_withdrawals = workshop_pages.base_url + "action/all_withdrawals";
@@ -179,6 +182,24 @@ workshop_pages.load_withdrawals = async () => {
         withdrawal.add(newOption,undefined);
     }
 
+    async function updateStatus() {
+        let status_value = status.value;
+        let withdrawal_value = withdrawal.value;
+
+        let data = {
+            "status": status_value,
+            
+          };
+          
+
+        const post_status = workshop_pages.base_url +"action/"+ withdrawal_value +"/update_withdrawal";
+        const response_status = await workshop_pages.postAPI(post_status, data, token);
+
+        if(response_status.data['_id']!=null){
+            console.log('success')
+            location.reload();
+          }
+    }
 
 }
 
