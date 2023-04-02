@@ -2,18 +2,28 @@ const cluster = require("cluster");
 const OS = require("os")
 const express = require("express");
 const app = express();
+const cors = require("cors");
+
+app.use(cors({
+  origin:"*",
+}))
+
+
+
+
 require("dotenv").config();
 app.use(express.json())
 
 const authRouter = require("./routes/auth.routes")
 app.use('/auth', authRouter)
 
-// const blogRouter = require("./routes/blog.routes");
-// const { authMiddleware } = require("./middlewares/auth.middleware");
-// app.use('/blog', authMiddleware, blogRouter)
+
 
 const actionRouter = require("./routes/action.routes")
 app.use('/action', actionRouter)
+
+
+
 
 if (cluster.isMaster) {
   const numCpus = OS.cpus().length;
