@@ -3,9 +3,9 @@
 
 const Input=({label_name,input_type,onChange},)=>{  
     return(
-    <div className="input">
-        <label>{label_name}</label>
-        <input type={input_type} onChange={onChange} required/>
+    <div className="container_clear">
+        <label className="label">{label_name}</label>
+        <input className="input_clear" type={input_type} onChange={onChange} required/>
     </div>
     );
 }
