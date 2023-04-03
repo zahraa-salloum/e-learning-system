@@ -3,6 +3,7 @@ import WelcomePage from "./Pages/WelcomePage";
 import LoginPage from './Pages/LoginPage';
 import RegisterPage from "./Pages/RegisterPage"; 
 import LogoutPage from "./Pages/LogoutPage";
+import EnrollPage from "./Pages/EnrollPage";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/welcome" element={<WelcomePage />} />
       <Route path="/logout" element={<LogoutPage />} />
-      
+      <Route path="/enroll" element={<EnrollPage />} />
       
       <Route path="*" element={<div>404</div>} />
       
