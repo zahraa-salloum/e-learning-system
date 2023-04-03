@@ -4,6 +4,7 @@ import LoginPage from './Pages/LoginPage';
 import RegisterPage from "./Pages/RegisterPage"; 
 import LogoutPage from "./Pages/LogoutPage";
 import EnrollPage from "./Pages/EnrollPage";
+import WithdrawPage from "./Pages/WithdrawPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/welcome" element={<WelcomePage />} />
       <Route path="/logout" element={<LogoutPage />} />
       <Route path="/enroll" element={<EnrollPage />} />
+      <Route path="/withdraw" element={<WithdrawPage />} />
       
       <Route path="*" element={<div>404</div>} />
       

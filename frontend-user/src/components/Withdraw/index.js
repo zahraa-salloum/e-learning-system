@@ -2,15 +2,15 @@ import Button from "../Button";
 
 
 
-const Enroll = ({option,enroll, onChange}) => {
+const Withdraw = ({option,withdraw, onChange}) => {
     return (
         <div className="container_clear">
             <select className="input_clear" name="classes" id="classes" onChange={onChange}>
             <option value="">Choose Class</option>
             {option}
             </select>
-            <Button name_button={"Enroll"} onSubmit={enroll} />
+            <Button name_button={"Withdraw"} onSubmit={withdraw} />
         </div>
     );
 }
-export default Enroll;
+export default Withdraw;
