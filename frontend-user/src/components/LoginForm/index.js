@@ -17,19 +17,10 @@ const LoginForm = () => {
    const handlePassword=(e)=>{
        setPassword(e.target.value)
     }
-    // const validateEmail=(email) =>{
-    //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    //   return emailRegex.test(email);}
-  
-    // const validatePassword=(password)=> {
-    //       const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    //       return passwordRegex.test(password);
-    //     }
         
     
     const handleSubmit=()=>{
-    //   if (validateEmail(email)){
-    //       if(validatePassword(password)){
+    
       
             let data = {
                 "email": email,
@@ -41,13 +32,12 @@ const LoginForm = () => {
           localStorage.setItem('token',res.data.token);
           localStorage.setItem('user_id',res.data.id);
           navigator('/welcome');
-        //   window.location.href="http://localhost:3000/code_editor"  
+        
   }
       ).catch((err) => {
           console.log(err);
       })
-//   }else(setError("Invalid credentials"))
-//   }else(setError("Invalid credentials"))
+
     }
   
       return(
